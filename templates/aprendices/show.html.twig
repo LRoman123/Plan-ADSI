@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aprendices{% endblock %}
+
+{% block body %}
+    <h1>Eliminar y Editar Aprendices</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ aprendice.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombres</th>
+                <td>{{ aprendice.nombres }}</td>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <td>{{ aprendice.apellidos }}</td>
+            </tr>
+            <tr>
+                <th>Ficha</th>
+                <td>{{ aprendice.ficha }}</td>
+            </tr>
+            <tr>
+                <th>Correo</th>
+                <td>{{ aprendice.correo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('aprendices_index') }}">back to list</a>
+        <br />
+    <a href="{{ path('aprendices_edit', {'id': aprendice.id}) }}">edit</a>
+
+    {{ include('aprendices/_delete_form.html.twig') }}
+{% endblock %}

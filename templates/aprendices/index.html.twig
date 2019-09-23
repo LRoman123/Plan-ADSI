@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aprendices index{% endblock %}
+
+{% block body %}
+    <h1>Aprendices index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Ficha</th>
+                <th>Correo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for aprendice in aprendices %}
+            <tr>
+                <td>{{ aprendice.id }}</td>
+                <td>{{ aprendice.nombres }}</td>
+                <td>{{ aprendice.apellidos }}</td>
+                <td>{{ aprendice.ficha }}</td>
+                <td>{{ aprendice.correo }}</td>
+                <td>
+                    <a href="{{ path('aprendices_show', {'id': aprendice.id}) }}">show</a>
+                    <br />
+                    <a href="{{ path('aprendices_edit', {'id': aprendice.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('aprendices_new') }}">Create new</a>
+{% endblock %}
